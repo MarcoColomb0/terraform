@@ -1,0 +1,17 @@
+[
+    {
+        "user_principal_name": "tf1@domain.onmicrosoft.com",
+        "display_name": "Terraform 1",
+        "mail_nickname": "terraform1"
+    },
+    {
+        "user_principal_name": "tf2@domain.onmicrosoft.com",
+        "display_name": "Terraform 2",
+        "mail_nickname": "terraform2"
+    },
+    {
+        "user_principal_name": "tf3@domain.onmicrosoft.com",
+        "display_name": "Terraform 3",
+        "mail_nickname": "terraform3"
+    }
+]
