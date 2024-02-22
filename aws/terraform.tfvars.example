@@ -1,0 +1,5 @@
+# Create IAM user on AWS
+AWS_ACCESS_KEY_ID     = "value"
+AWS_SECRET_ACCESS_KEY = "value"
+# Choose region @ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions
+AWS_REGION = "value"
