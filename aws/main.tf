@@ -29,7 +29,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-data "http" "my_ip" {
+data "http" "localip" {
   url = "https://api.ipify.org"
 }
 
@@ -46,14 +46,17 @@ resource "aws_subnet" "terraform-subnet" {
 
 # Create a security group
 resource "aws_security_group" "terraform-sg" {
-  vpc_id = aws_vpc.terraform-vpc.id
+  description = "Terraform Managed Security Group"
+  vpc_id      = aws_vpc.terraform-vpc.id
   ingress {
+    description = "Allow only SSH traffic"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${data.http.my_ip.response_body}/32"]
+    cidr_blocks = ["${data.http.localip.response_body}/32"]
   }
   egress {
+    description = "Allow all traffic"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
