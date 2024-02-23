@@ -29,6 +29,10 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+data "http" "my_ip" {
+  url = "https://api.ipify.org"
+}
+
 # Create a VPC
 resource "aws_vpc" "terraform-vpc" {
   cidr_block = "10.0.0.0/16"
@@ -47,7 +51,7 @@ resource "aws_security_group" "terraform-sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${data.http.my_ip.response_body}/32"]
   }
   egress {
     from_port   = 0
