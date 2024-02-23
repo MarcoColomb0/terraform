@@ -10,3 +10,7 @@ variable "AWS_REGION" {
   type        = string
   description = "AWS Resources Region"
 }
+variable "AWS_SSH_KEY_NAME" {
+  type        = string
+  description = "SSH key for EC2"
+}
