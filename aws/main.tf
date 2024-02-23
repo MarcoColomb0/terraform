@@ -69,6 +69,10 @@ resource "aws_instance" "terraform-ec2" {
   key_name                    = var.AWS_SSH_KEY_NAME
   vpc_security_group_ids      = [aws_security_group.terraform-sg.id]
   associate_public_ip_address = true
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
   tags = {
     Name = "TerraformEC2"
   }
