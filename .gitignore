@@ -1,3 +1,4 @@
+## Terraform gitignore
 # Local .terraform directories
 **/.terraform/*
 
@@ -32,3 +33,31 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+## Linux gitignore
+*~
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+## VSCode gitignore
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
