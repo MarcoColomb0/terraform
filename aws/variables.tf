@@ -14,3 +14,11 @@ variable "AWS_SSH_KEY_NAME" {
   type        = string
   description = "SSH key for EC2"
 }
+variable "RDS_USERNAME" {
+  type        = string
+  description = "Username for RDS DB"
+}
+variable "RDS_PASSWORD" {
+  type        = string
+  description = "Password for RDS DB"
+}

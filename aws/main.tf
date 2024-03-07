@@ -80,3 +80,24 @@ resource "aws_instance" "terraform-ec2" {
     Name = "TerraformEC2"
   }
 }
+
+# Create a subnet group for the RDS instance
+resource "aws_db_subnet_group" "terraform-rds-snet-grp" {
+  name       = "terraform-rds-snet-grp"
+  subnet_ids = [aws_subnet.terraform-subnet.id]
+}
+
+# Create the RDS instance
+resource "aws_db_instance" "terraform-rds" {
+  allocated_storage       = 20
+  instance_class          = "db.t2.micro"
+  engine                  = "mysql"
+  db_name                 = "terraformrds"
+  username                = var.RDS_USERNAME
+  password                = var.RDS_PASSWORD
+  skip_final_snapshot     = true
+  backup_retention_period = 7
+  publicly_accessible     = false
+  db_subnet_group_name    = aws_db_subnet_group.terraform-rds-snet-grp.name
+  vpc_security_group_ids  = [aws_security_group.terraform-sg.id]
+}
